@@ -3,7 +3,7 @@ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
         ssid="Nigga"
-        psk="Vnvnsairam4"
+        psk=""
         key_mgmt=WPA-PSK
 }
 
@@ -14,10 +14,10 @@ network={
   group=CCMP TKIP
   eap=PEAP
   ca_cert="/home/pi/.cat_installer/ca.pem"
-  identity="vana@tu-chemnitz.de"
+  identity="@tu-chemnitz.de"
   domain_suffix_match="radius.tu-chemnitz.de"
   phase2="auth=MSCHAPV2"
-  password="L.7i9Q=du"
+  password=""
   anonymous_identity="anonymous@tu-chemnitz.de"
 }
 

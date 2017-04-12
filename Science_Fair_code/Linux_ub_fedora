@@ -1,0 +1,61 @@
+fedora/kali
+
+systemctl restart Network-Manager------if u didnt get any ip address
+
+usermod sampleusername -a -G wheel    add user to sudoer
+
+yum install openssh-server   to add shh 
+
+systemctl start sshd.service            to start ssh
+
+sevice sshd status                      to get status
+
+
+sed -i '6d' ~/.ssh/known_hosts ----- change 6 to the number if you have problem with ESA keys in ssh
+
+sudo systemctl restart ssh
+
+netstat -ant |grep 22
+
+
+
+
+
+
+athul 017687271204
+
+
+
+ubuntu
+
+sudo service network-manager restart
+sudo ifdown eth0 && ifup eth0  to restart
+sudo systemctl restart ssh
+
+
+menu display
+initctl restart unity-panel-service
+
+
+usb format
+
+dmesg | tail
+df
+ls -la /dev/sd*
+umount /dev/sd*
+
+sudo mkdosfs -F 32 -v /path/to/sd/card  
+sudo mount /dev/sde1/ /media/sairam/                   to mount   
+
+
+sudo dd if=bsec-image-imx6dl-riotboard.sdcard of=/dev/sdd bs=1M
+
+yocto-layer create terratec
+
+https://sourceforge.net/projects/sixfireusb/files/sixfireusb-0.6.2.tar.bz2/download
+
+sudo arp-scan -l --interface=wlan0               all devices in my network
+
+ 
+MACHINE=imx6dl-riotboard . ./setup-environment build 
+

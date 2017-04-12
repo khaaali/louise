@@ -1,0 +1,23 @@
+country=GB
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+        ssid="Nigga"
+        psk="Vnvnsairam4"
+        key_mgmt=WPA-PSK
+}
+
+network={
+  ssid="eduroam"
+  key_mgmt=WPA-EAP
+  pairwise=CCMP
+  group=CCMP TKIP
+  eap=PEAP
+  ca_cert="/home/pi/.cat_installer/ca.pem"
+  identity="vana@tu-chemnitz.de"
+  domain_suffix_match="radius.tu-chemnitz.de"
+  phase2="auth=MSCHAPV2"
+  password="L.7i9Q=du"
+  anonymous_identity="anonymous@tu-chemnitz.de"
+}
+

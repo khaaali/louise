@@ -1,0 +1,11 @@
+Hello, my name is Louise.I am a bot, you can ask me to: 
+   (1)roll a dice 
+   (2)what is the current time? 
+   (3)what is the system time?
+   (4)what is your name?
+   (5)who created you
+   (6)crack a joke
+   (7)take my picture
+   (8)what is the value of temperature sensor?
+   (9)play music
+   (10)Darling talk  

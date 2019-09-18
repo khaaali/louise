@@ -59,3 +59,141 @@ sudo arp-scan -l --interface=wlan0               all devices in my network
  
 MACHINE=imx6dl-riotboard . ./setup-environment build 
 
+
+
+Setup in Xubuntu
+
+
+Installing Java:
+https://www.wikihow.com/Install-Java-on-Linux  ----> using PPAs ****notworking as of 20.05.2019****
+
+
+1)https://docs.oracle.com/javase/8/docs/technotes/guides/install/linux_jdk.html#BJFJJEFG
+
+2)download jdk-8u211-linux-x64.tar.gz from oracle
+3)extract to ---> "tar zxvf jdk-8u211-linux-x64.tar.gz /usr/java"   (NOTE: create "java" folder first)
+4)set java path in .bashrc-----> "export PATH=$PATH:/usr/java/jdk1.8.0_211/bin/"
+
+Installing Eclipse:
+1)download eclipse -->https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz
+
+2)extract to eclipse filese to ---> "sudo tar zxvf eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz /usr"
+3)edit file ecliplse.ini by adding below line before "-vmargs". 
+	"-vm
+	/usr/java/jdk1.8.0_211/bin/java"
+
+4)set eclipse path in .bashrc ---->"export PATH=$PATH:/usr/eclipse/"
+
+
+5)
+add following lines to .bashrc:
+
+export PATH=$PATH:/usr/java/jdk1.8.0_211/bin/
+#setting eclipse path
+export PATH=$PATH:/usr/eclipse/
+#setting javahome envi variable for building opencv libraries
+export JAVA_HOME=/usr/java/jdk1.8.0_211
+
+export GIT_SSH=/usr/bin/ssh
+
+export ANDRIOID_HOME=/home/sairam/androidsdk
+
+
+#for adb
+export PATH=$PATH:/home/sairam/androidsdk/platform-tools
+
+# MC Scripts
+export PATH=$PATH:/home/sairam/Desktop/20June19_git/motioncomposer/MCLibrary/src/scripts
+
+
+
+
+
+Opencv
+https://opencv.org/opencv-3-4/
+
+
+https://advancedweb.hu/2016/03/01/opencv_ubuntu/ ----> CMD 
+https://opencv-java-tutorials.readthedocs.io/en/latest/01-installing-opencv-for-java.html ---->Cmake gui
+
+other
+https://docs.opencv.org/3.3.0/d7/d9f/tutorial_linux_install.html
+
+
+
+AndroidSDK:
+https://linoxide.com/ubuntu-how-to/install-android-sdk-manager-linux-ubuntu-16-04/
+
+
+
+remove openJDK:
+sudo apt-get purge --auto-remove openjdk*
+sudo apt-get purge openjdk*
+
+
+to get version name of application
+./adb shell dumpsys package org.fxgui | grep versionName
+
+Install apk
+./adb install javafxgui.apk 
+
+
+to get list of devices on usb
+cat /sys/bus/usb/devices/*/product
+usb-devices
+
+create usbplug.rules in /etc/udev/rules.d
+TTRS{vendor}=="Lenovo", RUN+="/home/sairam/test.sh"
+
+
+to check live dmesg
+dmesg -wH
+
+live udev monitor
+udevadm monitor
+
+reload udevrules
+sudo udevadm trigger
+
+
+
+check openports
+netstat -lntu
+sudo netstat -tulpn | grep LISTEN
+netstat -an | grep PORTNUMBER | grep -i listen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo mount -t vboxsf -o uid=1000,gid=1000 vmshare ~/Desktop/VMshare/
+
+to kill open ports
+fuser -k -n tcp 37
+
+
+check running udp port for an application
+sudo netstat -lnup | grep "csound"
+
+To find which application is listening on a particular port, run lsof in this form.
+sudo lsof -i :6560
+
+listen on port
+nc -l 6560
+
+connect to port and send text
+nc localhost 6560
+hello
+
+
